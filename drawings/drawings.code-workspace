@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "src\\web"
+		},
+		{
+			"path": "src\\api"
+		}
+	],
+	"settings": {
+		"eslint.autoFixOnSave": true,
+		"files.exclude": {
+			"node_modules": true
+		}
+	}
+}

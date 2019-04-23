@@ -1,0 +1,23 @@
+{
+  "name": "web",
+  "version": "0.1.0",
+  "dependencies": {
+    "query-string": "^5.0.1",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-scripts": "1.0.17",
+    "rxjs": "^5.5.6",
+    "rxsync": "^0.0.3",
+    "simple-react-canvas": "^0.0.1",
+    "socket.io-client": "^2.0.4"
+  },
+  "devDependencies": {
+    "eslint-plugin-react": "^7.5.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}

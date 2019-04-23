@@ -1,0 +1,41 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "framework-dependent-deployment",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceRoot}\\framework-dependent-deployment\\bin\\Debug\\netcoreapp1.1\\framework-dependent-deployment.dll",
+            "args": [],
+            "cwd": "${workspaceRoot}\\framework-dependent-deployment",
+            "externalConsole": false,
+            "stopAtEntry": false,
+            "internalConsoleOptions": "openOnSessionStart"
+        },
+        {
+            "name": "self-contained-deployment",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceRoot}\\self-contained-deployment\\bin\\Debug\\netcoreapp1.1\\self-contained-deployment.dll",
+            "args": [],
+            "cwd": "${workspaceRoot}\\self-contained-deployment",
+            "externalConsole": false,
+            "stopAtEntry": false,
+            "internalConsoleOptions": "openOnSessionStart"
+        },
+        {
+            "name": "self-contained-deployment-small",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceRoot}\\self-contained-deployment-small\\bin\\Debug\\netcoreapp1.1\\self-contained-deployment-small.dll",
+            "args": [],
+            "cwd": "${workspaceRoot}\\self-contained-deployment-small",
+            "externalConsole": false,
+            "stopAtEntry": false,
+            "internalConsoleOptions": "openOnSessionStart"
+        }
+    ]
+}
