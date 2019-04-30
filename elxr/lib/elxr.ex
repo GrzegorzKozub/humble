@@ -57,4 +57,13 @@ defmodule Elxr do
 
   def map([], _), do: []
   def map([hd | tl], f), do: [f.(hd) | map(tl, f)]
+
+  defp fizz_buzz_impl(0, 0, _), do: 'FizzBuzz'
+  defp fizz_buzz_impl(0, _, _), do: 'Fizz'
+  defp fizz_buzz_impl(_, 0, _), do: 'Buzz'
+  defp fizz_buzz_impl(_, _, a), do: a
+
+  def fizz_buzz(n) do
+    fizz_buzz_impl(rem(n, 3), rem(n, 5), n)
+  end
 end
