@@ -1,9 +1,9 @@
-defmodule ElixirQuotes.MixProject do
+defmodule Quotes.MixProject do
   use Mix.Project
 
   def project do
     [
-      app: :elixir_quotes,
+      app: :quotes,
       version: "0.1.0",
       elixir: "~> 1.8",
       start_permanent: Mix.env() == :prod,
@@ -14,7 +14,7 @@ defmodule ElixirQuotes.MixProject do
   def application do
     [
       extra_applications: [:logger, :quantum],
-      mod: {ElixirQuotes.Application, []}
+      mod: {Quotes.Application, []}
     ]
   end
 

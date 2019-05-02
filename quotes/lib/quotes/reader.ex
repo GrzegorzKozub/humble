@@ -1,4 +1,4 @@
-defmodule ElixirQuotes.Reader do
+defmodule Quotes.Reader do
   def read(file_path) do
     File.read!(file_path)
     |> String.split("\n")

@@ -1,4 +1,4 @@
-defmodule ElixirQuotes.Server do
+defmodule Quotes.Server do
   @moduledoc """
   Just for demo following the course. Not needed when we have the Scheduler.
   """
@@ -14,7 +14,7 @@ defmodule ElixirQuotes.Server do
   end
 
   def handle_cast({:file_path, file_path}, _) do
-    ElixirQuotes.Quotes.show(file_path)
+    Quotes.Quotes.show(file_path)
     {:noreply, %{}}
   end
 

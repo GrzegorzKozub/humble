@@ -1,4 +1,4 @@
-defmodule ElixirQuotes.Logger do
+defmodule Quotes.Logger do
   import IO.ANSI
 
   def log(quote) do
