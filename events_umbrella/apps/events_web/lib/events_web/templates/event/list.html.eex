@@ -1,5 +1,5 @@
 <h1>All events</h1>
 <%= render EventsWeb.SharedView, "count.html", list: @events %>
 <%= for event <- @events do %>
-    <%= render "summary.html", event: event %>
+    <%= render "summary.html", event: event, conn: @conn %>
 <% end %>
