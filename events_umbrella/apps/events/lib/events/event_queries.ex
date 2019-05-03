@@ -3,7 +3,7 @@ defmodule Events.EventQueries do
   alias Events.{Repo, Event}
 
   def get_all, do: Repo.all(from(Event))
-  def get_by_id(id), do: Repo.get(Events, id)
+  def get_by_id(id), do: Repo.get(Event, id)
 
   def get_all_for_location(location) do
     query =
