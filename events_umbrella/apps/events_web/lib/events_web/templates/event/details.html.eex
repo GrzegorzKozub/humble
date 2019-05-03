@@ -1,2 +1,12 @@
-<h1><%= @event.title %> <small><%= @event.location %></small></h1>
-<h3><%= format_date @event.date %></h3>
+<h1>
+  <%= @event.title %>
+</h1>
+<div>
+  <%= @event.location %>
+</div>
+<div>
+  <%= format_date @event.date %>
+</div>
+<div>
+  <%= @event.description %>
+</div>
