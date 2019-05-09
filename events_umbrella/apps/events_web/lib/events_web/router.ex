@@ -17,10 +17,14 @@ defmodule EventsWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+
     get "/events", EventController, :list
     get "/events/new", EventController, :create
     post "/events/new", EventController, :add
     get "/events/:id", EventController, :show
+
+    get "/login", LoginController, :index
+    post "/login", LoginController, :login
   end
 
   # Other scopes may use custom stacks.

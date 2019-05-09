@@ -1,6 +1,8 @@
 defmodule EventsWeb.EventController do
   use EventsWeb, :controller
 
+  plug EventsWeb.AuthorizedPlug, "admin" when action in [:create]
+
   def list(conn, _params) do
     events = Events.EventQueries.get_all()
     render(conn, "list.html", events: events)
