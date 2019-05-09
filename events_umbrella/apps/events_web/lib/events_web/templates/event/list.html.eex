@@ -3,3 +3,6 @@
 <%= for event <- @events do %>
     <%= render "summary.html", event: event, conn: @conn %>
 <% end %>
+<a href="<%= Routes.event_path(@conn, :create) %>" class="button float-right">
+    Add an event
+</a>

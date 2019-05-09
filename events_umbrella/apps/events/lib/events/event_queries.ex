@@ -13,5 +13,5 @@ defmodule Events.EventQueries do
     Repo.all(query)
   end
 
-  def create(event), do: Repo.insert!(event)
+  def create(event), do: Repo.insert(event)
 end
