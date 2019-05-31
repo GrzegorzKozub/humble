@@ -22,6 +22,7 @@ defmodule EventsWeb.Router do
     get "/events/new", EventController, :create
     post "/events/new", EventController, :add
     get "/events/:id", EventController, :show
+    post "/events/:id/reserve", EventController, :reserve
 
     get "/login", LoginController, :index
     post "/login", LoginController, :login

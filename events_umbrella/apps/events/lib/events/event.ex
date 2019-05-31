@@ -7,6 +7,7 @@ defmodule Events.Event do
     field :location, :string
     field :date, :utc_datetime
     field :description, :string
+    field :quantity_available, :integer, default: 25
     timestamps()
   end
 

@@ -10,3 +10,13 @@
 <div>
   <%= @event.description %>
 </div>
+<div>
+  Seats left: <%= @event.quantity_available %>
+</div>
+
+<%= form_for @conn, Routes.event_path(@conn, :reserve, @event.id), [as: :reservation], fn f -> %>
+  <fieldset>
+    <%= number_input f, :quantity, min: 1 %>
+    <%= submit "Reserve", class: "float-right" %>
+  </fieldset>
+<% end %>

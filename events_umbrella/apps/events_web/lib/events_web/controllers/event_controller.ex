@@ -1,7 +1,7 @@
 defmodule EventsWeb.EventController do
   use EventsWeb, :controller
 
-  plug EventsWeb.AuthorizedPlug, "admin" when action in [:create]
+  plug(EventsWeb.AuthorizedPlug, "admin" when action in [:create])
 
   def list(conn, _params) do
     events = Events.EventQueries.get_all()
@@ -33,5 +33,10 @@ defmodule EventsWeb.EventController do
       {:ok, %{id: id}} -> redirect(conn, to: Routes.event_path(conn, :show, id))
       {:error, reasons} -> create(conn, %{errors: reasons})
     end
+  end
+
+  def reserve(conn, %{"id" => id, "reservation" => %{"quantity" => quantity}}) do
+    Events.EventQueries.decrease_quantity(id, quantity)
+    redirect(conn, to: Routes.event_path(conn, :show, id))
   end
 end
