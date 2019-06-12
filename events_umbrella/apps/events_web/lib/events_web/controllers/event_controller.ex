@@ -36,7 +36,8 @@ defmodule EventsWeb.EventController do
   end
 
   def reserve(conn, %{"id" => id, "reservation" => %{"quantity" => quantity}}) do
-    Events.EventQueries.decrease_quantity(id, quantity)
+    {:ok, event} = Events.EventQueries.decrease_quantity(id, quantity)
+    EventsWeb.EventChannel.send_update(event)
     redirect(conn, to: Routes.event_path(conn, :show, id))
   end
 end

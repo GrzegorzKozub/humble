@@ -10,8 +10,8 @@
 <div>
   <%= @event.description %>
 </div>
-<div>
-  Seats left: <%= @event.quantity_available %>
+<div id="seats-left">
+  Seats left: <span><%= @event.quantity_available %></span>
 </div>
 
 <%= form_for @conn, Routes.event_path(@conn, :reserve, @event.id), [as: :reservation], fn f -> %>
@@ -20,3 +20,5 @@
     <%= submit "Reserve", class: "float-right" %>
   </fieldset>
 <% end %>
+
+<span id="id" data-id="<%= @event.id %>"></span>
