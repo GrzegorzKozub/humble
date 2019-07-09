@@ -9,8 +9,17 @@ defmodule KV.Bucket do
     Agent.get(bucket, &Map.get(&1, key))
   end
 
+  #def put(bucket, key, value) do
+    #Agent.update(bucket, &Map.put(&1, key, value))
+  #end
+
   def put(bucket, key, value) do
-    Agent.update(bucket, &Map.put(&1, key, value))
+    # client
+    Agent.update(bucket, fn state ->
+      # server
+      Map.put(state, key, value)
+    end)
+    # client
   end
 
   def delete(bucket, key) do
