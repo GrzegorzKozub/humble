@@ -73,7 +73,7 @@ defmodule KVServer.Command do
   end
 
   defp lookup(bucket, callback) do
-    case Registry.lookup(KV.Registry, bucket) do
+    case KV.Router.route(bucket, KV.Registry, :lookup, [KV.Registry, bucket]) do
       {:ok, pid} -> callback.(pid)
       :error -> {:error, :not_found}
     end
