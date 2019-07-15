@@ -1,4 +1,7 @@
 defmodule KVServer.Command do
+  alias KV.Bucket
+  alias KV.Registry
+
   @doc ~S"""
   Parses a given `line` into a command.
 
@@ -41,7 +44,38 @@ defmodule KVServer.Command do
   @doc """
   Runs the command
   """
-  def run(command) do
+  def run(command)
+
+  def run({:create, bucket}) do
+    Registry.create(KV.Registry, bucket)
     {:ok, "OK\r\n"}
+  end
+
+  def run({:get, bucket, key}) do
+    lookup(bucket, fn pid ->
+      value = Bucket.get(pid, key)
+      {:ok, "#{value}\r\nOK\r\n"}
+    end)
+  end
+
+  def run({:put, bucket, key, value}) do
+    lookup(bucket, fn pid ->
+      Bucket.put(pid, key, value)
+      {:ok, "OK\r\n"}
+    end)
+  end
+
+  def run({:delete, bucket, key}) do
+    lookup(bucket, fn pid ->
+      Bucket.delete(pid, key)
+      {:ok, "OK\r\n"}
+    end)
+  end
+
+  defp lookup(bucket, callback) do
+    case Registry.lookup(KV.Registry, bucket) do
+      {:ok, pid} -> callback.(pid)
+      :error -> {:error, :not_found}
+    end
   end
 end
