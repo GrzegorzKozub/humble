@@ -16,3 +16,5 @@ import Mix.Config
 #       format: "$date $time [$level] $metadata$message\n",
 #       metadata: [:user_id]
 #
+
+config :kv, :routing_table, [{?a..?z, node()}]
