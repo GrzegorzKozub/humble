@@ -1,5 +1,8 @@
 defmodule Issues.CLI do
   @default_count 3
+
+  import Issues.TableFormatter, only: [ print_table_for_columns: 2 ]
+
   def run(argv) do
     parse_args(argv)
     |> process
@@ -36,6 +39,7 @@ defmodule Issues.CLI do
     |> decode_response
     |> sort_descending
     |> last(count)
+    |> print_table_for_columns(["number", "created_at", "title"])
   end
 
   defp decode_response({:ok, body}), do: body
