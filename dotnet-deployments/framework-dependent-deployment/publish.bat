@@ -1,1 +1,0 @@
-dotnet publish --framework netcoreapp1.1 --configuration Release

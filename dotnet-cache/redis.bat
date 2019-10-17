@@ -1,1 +1,0 @@
-docker run --detach --publish 6379:6379 redis
