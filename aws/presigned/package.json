@@ -1,7 +1,7 @@
 {
   "name": "presigned",
   "dependencies": {
-    "aws-sdk": "^2.615.0",
+    "aws-sdk": "^2.814.0",
     "request": "^2.88.2"
   },
   "devDependencies": {
